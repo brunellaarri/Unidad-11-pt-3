@@ -35,3 +35,28 @@ logItems(listaDeSuper);
 
 console.log("terraza");
 logItems(terraza);
+
+let opcion = "";
+
+while (opcion !== "salir") {
+  opcion = prompt('Escribí un comando: "nuevo", "listar", "borrar" o "salir"');
+
+  if (opcion === "nuevo") {
+    let item = prompt("¿Qué producto querés agregar?");
+    listaDeSuper.push(item);
+  } else if (opcion === "listar") {
+    logItems(listaDeSuper);
+  } else if (opcion === "borrar") {
+    let indice = Number(prompt("¿Qué número de producto querés borrar?"));
+    if (indice >= 0 && indice < listaDeSuper.length) {
+      let borrado = listaDeSuper.splice(indice, 1);
+      console.log("Se borró: " + borrado[0]);
+    } else {
+      console.log("Ese número no existe en la lista");
+    }
+  } else if (opcion !== "salir") {
+    console.log("Comando no válido");
+  }
+}
+
+console.log("Programa finalizado");
